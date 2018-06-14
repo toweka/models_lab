@@ -34,7 +34,7 @@ class ClubsController < Sinatra::Base
   end
 
   # Create page
-  club "/clubs/" do
+  post "/clubs/" do
     club = Club.new
 
     club.title = params[:title]

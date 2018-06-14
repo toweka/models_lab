@@ -5,21 +5,21 @@ class Club
 
   # Use clubgres to connect to a database
   def self.open_connection
-    conn = PG.connect(dbname: "blog")
+    conn = PG.connect(dbname: "club")
   end
 
   def self.all
     conn = self.open_connection
 
-    sql ="SELECT * FROM club ORDER BY id"
+    sql = "SELECT * FROM club ORDER BY id"
 
     results = conn.exec(sql)
 
-    clubs = results.map do |tuple|
+    club = results.map do |tuple|
       self.hydrate(tuple)
     end
 
-    return clubs
+    return club
   end
 
   def self.hydrate(club_data)
